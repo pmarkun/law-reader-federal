@@ -33,8 +33,9 @@ def getBulkUrls(steps=1000):
     print "Getting " + str(steps)
     for index, l in enumerate(laws):
         if i <= steps:
-            i += 1
-            laws[index] = getCamaraUrl(l)
+            if not l.has_key('url'): #only count when not url
+                laws[index] = getCamaraUrl(l)
+                i += 1
         else:
             laws[index] = getCamaraUrl(l)
             print "Updating json..."
