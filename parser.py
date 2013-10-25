@@ -1,9 +1,8 @@
 from lxml import html
 import json, urllib2, html2text
 
-lawjson = open('laws.json', 'r')
-laws = json.loads(lawjson.read())
-lawjson.close()
+with open('laws.json', 'r') as lawjson:
+    laws = json.loads(lawjson.read())
 
 def getCamaraUrl(l):
     if not l.has_key('url'):
